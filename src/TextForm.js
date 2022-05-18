@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import InputList from './InputList';
 
 
-
 const STORAGE_KEY = 'userData'
 
 function TextForm() {
@@ -30,6 +29,7 @@ function TextForm() {
         localStorage.removeItem(STORAGE_KEY)
         
     }
+
    async function onFormSubmit(event) {
         const refInput = userInputRef.current.value
         if(refInput === '') return
@@ -37,8 +37,6 @@ function TextForm() {
         userInputRef.current.value= null
         event.preventDefault();
     }
-
-  
 
     async function handleReponse(refInput){
         const { Configuration, OpenAIApi } = require("openai");
@@ -63,10 +61,6 @@ function TextForm() {
         });
        
     }
-
-    
-
-
   return (
     <> 
         <Container fluid ="sm true" className='my-4 py-5'>
