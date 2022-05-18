@@ -43,6 +43,7 @@ function TextForm() {
     async function handleReponse(refInput){
         const { Configuration, OpenAIApi } = require("openai");
         
+
         
         const configuration = new Configuration({
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -50,7 +51,7 @@ function TextForm() {
         const openai = new OpenAIApi(configuration);
 
         const response = await openai.createCompletion("text-curie-001", {
-            prompt: "Write a creative, professional ad for the following product to run on Instagram " + refInput,
+            prompt:"\n\n Write a creative, cool, funny, attractive, professional campaign for the following product to run on social media: " + refInput,
             temperature: 0.7,
             max_tokens: 256,
             top_p: 1,
@@ -60,9 +61,10 @@ function TextForm() {
         setUserInputs(prevInput =>{
             return [...prevInput , {id: uuidv4() , input: refInput, resp: response.data.choices[0].text}]
         });
+       
     }
 
-
+    
 
 
   return (
@@ -72,7 +74,7 @@ function TextForm() {
                 <Col>
                 <Card>
                     <div></div>
-                    <Card.Img varian="top"style={{maxHeight:'180px'}} src="https://images.pexels.com/photos/267401/pexels-photo-267401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" responsive />
+                    <Card.Img varian="top" className="img-fluid" src="https://github.com/vyhoangquocnguyen/OpenAI/blob/master/public/pexels-pixabay-267401.jpg?raw=true"/>
                     <Card.Body>
                         <Card.Body className="d-flex">
                                 <Card.Title className='fw-bold mt-1'>Product Ad Generator</Card.Title><br/>

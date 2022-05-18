@@ -7,7 +7,7 @@ export default function Input({input}) {
             Advertising for: {input.input}           
         </li>
         <li>
-            Response: {input.resp}
+            Caption: {input.resp}
         </li>
     </>
  
