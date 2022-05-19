@@ -4,10 +4,8 @@ import { Button, Form, Card, Container, Row, Col, FloatingLabel, ButtonGroup  } 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputList from './InputList';
 
-
-const STORAGE_KEY = 'userData'
-
 function TextForm() {
+    const STORAGE_KEY = 'userData'
     const userInputRef = useRef();
     const [userData, setUserInputs] = useState(()=>{
         const savedData = localStorage.getItem(STORAGE_KEY);
