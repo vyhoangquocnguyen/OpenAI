@@ -43,8 +43,7 @@ function TextForm() {
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
         });
         const openai = new OpenAIApi(configuration);
-
-        const response = await openai.createCompletion("text-curie-001", {
+        try { const response = await openai.createCompletion("text-curie-001", {
             prompt:"\n\n Write a creative, cool, funny, attractive, professional campaign for the following product to run on social media: " + refInput,
             temperature: 0.7,
             max_tokens: 256,
@@ -52,10 +51,13 @@ function TextForm() {
             frequency_penalty: 0.0,
             presence_penalty: 0.0,
             });
-        setUserInputs(prevInput =>{
-            return [...prevInput , {id: uuidv4() , input: refInput, resp: response.data.choices[0].text}]
-        });
-       
+            setUserInputs(prevInput =>{
+                return [...prevInput , {id: uuidv4() , input: refInput, resp: response.data.choices[0].text}]
+            });
+        }
+        catch(err){
+            alert("Fail to make the request, please try later")
+        }
     }
   return (
     <> 
