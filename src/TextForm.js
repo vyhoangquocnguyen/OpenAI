@@ -56,7 +56,13 @@ function TextForm() {
             });
         }
         catch(err){
-            alert("Fail to make the request, please try later")
+            if(err.response){
+                alert("Fail to make the request, please try later")
+                console.log(err.response.status);
+                console.log(err.response.data);
+            } else {
+                console.log(err.message);
+            }
         }
     }
   return (
