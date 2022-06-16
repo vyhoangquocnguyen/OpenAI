@@ -28,7 +28,7 @@ function TextForm() {
         
     }
 
-   async function onFormSubmit(event) {
+   function onFormSubmit(event) {
         const refInput = userInputRef.current.value
         if(refInput === '') return
         handleReponse(refInput)
